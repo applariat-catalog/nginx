@@ -5,5 +5,9 @@
 
 #TO DO - Add an if to check for file and throw error if not present
 
-cp -f $artifact_root/src/nginx.conf /etc/nginx/nginx.conf
+if [ -e $artifact_root/src/nginx.conf ]
+then
+    cp -f $artifact_root/src/nginx.conf /etc/nginx/nginx.conf
+fi
+
 cp -f $artifact_root/src/ /usr/share/nginx/html
