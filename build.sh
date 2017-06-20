@@ -1,13 +1,17 @@
 #! /bin/sh
-# appLariats generic tomcat build script
-# Requirements - A valid war file exists within the code_dir
-# Copies the war file from the code_dir and copies it into /usr/local/tomcat/webapps
+# appLariats generic nginx build script
+# Requirements - A valid nginx.conf file exists within the /src/conf/ path
+# Copies the nginx.conf file from the /src/conf/ and copies it into /etc/nginx/nginx.conf
 
-#TO DO - Add an if to check for file and throw error if not present
+#Log everything in /src/build.log
+logfile=/src/build.log
+exec > $logfile 2>&1
+set -x
 
-if [ -e $artifact_root/src/nginx.conf ]
+#Check for nginx.conf file and throw exception if not present
+if [ -e /src/conf/nginx.conf ]
 then
-    cp -f $artifact_root/src/nginx.conf /etc/nginx/nginx.conf
+    cp -f /src/conf/nginx.conf /etc/nginx/nginx.conf
 fi
 
-cp -f $artifact_root/src/ /usr/share/nginx/html
+cp -rf /src/* /usr/share/nginx/html
