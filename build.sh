@@ -8,10 +8,15 @@ logfile=/src/build.log
 exec > $logfile 2>&1
 set -x
 
-#Check for nginx.conf file and throw exception if not present
-if [ -e /src/conf/nginx.conf ]
+#make sure nginx.conf exists in /conf dir
+#stump the default nginx.conf file with the user provided config
+#optionally replace conf/nginx.conf with your own to customize nginx
+if [ -e /conf/nginx.conf ]
 then
-    cp -f /src/conf/nginx.conf /etc/nginx/nginx.conf
+    cp -f /conf/nginx.conf /etc/nginx/nginx.conf
+else
+ echo "ERROR! did not find nginx.conf file in /conf folder"
+ exit 1
 fi
 
 cp -rf /src/* /usr/share/nginx/html
