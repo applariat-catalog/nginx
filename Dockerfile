@@ -1,4 +1,4 @@
-FROM php:latest
+FROM nginx:latest
 
 ARG artifact_root="."
 

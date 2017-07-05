@@ -2,6 +2,6 @@
 # appLariat generic entrypoint.sh
 
 echo "Printing build log"
-cat /src/build.log
+cat /tmp/build.log
 
 exec @
