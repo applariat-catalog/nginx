@@ -1,9 +1,9 @@
 #! /bin/sh
 # appLariats generic nginx build script
-# Requirements - A valid nginx.conf file exists within the /src/conf/ path
-# Copies the nginx.conf file from the /src/conf/ and copies it into /etc/nginx/nginx.conf
+# Requirements - A valid nginx.conf file exists within the /code/conf/ path
+# Copies the nginx.conf file from the /code/conf/ and copies it into /etc/nginx/nginx.conf
 
-#Log everything in /src/build.log
+#Log everything in /tmp/build.log
 logfile=/tmp/build.log
 exec > $logfile 2>&1
 set -x
@@ -19,8 +19,8 @@ else
  exit 1
 fi
 
-cp -rf /src/* /usr/share/nginx/html
+cp -rf /code/* /usr/share/nginx/html
 
 #Cleaning up after ourselves
-rm -rf /src
+rm -rf /code
 rm -rf /conf
