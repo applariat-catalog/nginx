@@ -4,4 +4,5 @@
 echo "Printing build log"
 cat /tmp/build.log
 
-exec @
+#Run nginx in non-daemon mode
+exec nginx -g "daemon off;"

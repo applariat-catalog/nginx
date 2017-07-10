@@ -1,7 +1,9 @@
 #! /bin/sh
 # appLariats generic nginx build script
-# Requirements - A valid nginx.conf file exists within the /code/conf/ path
-# Copies the nginx.conf file from the /code/conf/ and copies it into /etc/nginx/nginx.conf
+# Requirements -
+# - A valid nginx.conf file exists within the conf/ path, build.sh copies the nginx.conf file from the conf/ and copies it into /etc/nginx/nginx.conf
+# - A code/ directory provided by user located in the root of this repo with all the files that need to be published by nginx like index.html etc
+
 
 #Log everything in /tmp/build.log
 logfile=/tmp/build.log
